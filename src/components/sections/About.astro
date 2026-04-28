@@ -1,0 +1,36 @@
+---
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  narrative: string;
+  stats: readonly StatItem[];
+}
+
+const { title, description, narrative, stats } = Astro.props;
+---
+
+<section id="about" class="py-20 md:py-40">
+  <div class="container mx-auto px-4">
+    <div data-reveal class="soft-surface grid gap-8 rounded-[1.25rem] px-5 py-8 sm:px-8 sm:py-10 md:px-12 md:py-14 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16 lg:items-start">
+      <div class="max-w-3xl">
+        <h2 class="section-title">{title}</h2>
+        <p class="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:mt-5 sm:text-lg sm:leading-8">{description}</p>
+        <p class="mt-6 max-w-3xl text-sm leading-7 text-muted-foreground sm:mt-8 sm:text-base sm:leading-8">{narrative}</p>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 lg:pt-8">
+        {stats.map((stat, index) => (
+          <div data-reveal data-reveal-delay={String(index * 80)} class="rounded-[1rem] border border-white/60 bg-white/45 p-4 sm:p-5 md:p-7 backdrop-blur-sm">
+            <p class="text-2xl font-bold text-primary sm:text-3xl">{stat.value}</p>
+            <p class="mt-2 text-xs leading-5 text-muted-foreground sm:mt-3 sm:text-sm sm:leading-6">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

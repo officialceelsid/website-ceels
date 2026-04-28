@@ -1,0 +1,78 @@
+---
+import { siteConfig } from "@/config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title = siteConfig.name,
+  description = siteConfig.description,
+  image = siteConfig.ogImage,
+  canonicalURL,
+  noIndex = false,
+} = Astro.props;
+
+const canonical = canonicalURL
+  ? new URL(canonicalURL, siteConfig.url).toString()
+  : new URL(Astro.url.pathname, siteConfig.url).toString();
+const socialImageURL = new URL(image, siteConfig.url).toString();
+---
+
+<title>{title}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content={description} />
+<meta name="keywords" content={siteConfig.keywords.join(", ")} />
+<meta name="author" content={siteConfig.name} />
+<meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:locale" content="id_ID" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={socialImageURL} />
+
+<meta name="theme-color" content="#0066ff" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content={siteConfig.name} />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/favicon.ico" />
+<link rel="manifest" href="/manifest.json" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": siteConfig.name,
+  "url": siteConfig.url,
+  "logo": `${siteConfig.url}/logo.svg`,
+  "description": siteConfig.description,
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": siteConfig.contact.email,
+    "contactType": "customer service",
+  },
+  "sameAs": [
+    siteConfig.links.github,
+    siteConfig.links.linkedin,
+    siteConfig.links.instagram,
+  ],
+})} />

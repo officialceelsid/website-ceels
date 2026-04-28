@@ -1,0 +1,56 @@
+---
+import "@/styles/global.css";
+import SEO from "@/components/SEO.astro";
+import { siteConfig } from "@/config/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+}
+
+const { title, description, image, noIndex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    <SEO title={title} description={description} image={image} noIndex={noIndex} />
+    <script is:inline>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <slot />
+    <script is:inline>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const revealItems = document.querySelectorAll("[data-reveal]");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+
+              const element = entry.target;
+              const delay = element.getAttribute("data-reveal-delay");
+
+              if (delay) {
+                element.style.transitionDelay = `${delay}ms`;
+              }
+
+              element.classList.add("is-visible");
+              observer.unobserve(element);
+            }
+          },
+          {
+            threshold: 0.14,
+            rootMargin: "0px 0px -8% 0px",
+          }
+        );
+
+        revealItems.forEach((item) => observer.observe(item));
+      }
+    </script>
+  </body>
+</html>

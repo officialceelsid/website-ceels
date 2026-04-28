@@ -1,0 +1,16 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <rect x="64" y="64" width="1072" height="502" rx="32" fill="#111827" stroke="#1F2937"/>
+  <rect x="112" y="116" width="150" height="150" rx="30" fill="#0066FF"/>
+  <path d="M164 159.5C164 150.387 171.387 143 180.5 143H232V171H190C185.582 171 182 174.582 182 179V181C182 185.418 185.582 189 190 189H218C227.113 189 234.5 196.387 234.5 205.5V213.5C234.5 222.613 227.113 230 218 230H164V202H208.5C212.918 202 216.5 198.418 216.5 194V192C216.5 187.582 212.918 184 208.5 184H180.5C171.387 184 164 176.613 164 167.5V159.5Z" fill="white"/>
+  <path d="M164 249H234" stroke="white" stroke-width="16" stroke-linecap="round"/>
+  <text x="112" y="360" fill="white" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="700">
+    Branding Website Template
+  </text>
+  <text x="112" y="430" fill="#C7D2FE" font-family="Inter, Arial, sans-serif" font-size="28">
+    Fast Astro architecture for agencies, studios, and service businesses.
+  </text>
+  <text x="112" y="476" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">
+    Replace the template copy with your own positioning, proof, and offers.
+  </text>
+</svg>

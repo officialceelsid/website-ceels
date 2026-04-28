@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import CTA from "@/components/sections/CTA.astro";
+import PageIntro from "@/components/sections/PageIntro.astro";
+import WorkArchive from "@/components/sections/WorkArchive.astro";
+import { siteConfig } from "@/config/site";
+import { homePage } from "@/content/home";
+import { worksPage } from "@/content/site";
+---
+
+<BaseLayout
+  title={`Karya | ${siteConfig.name}`}
+  description="Halaman karya Ceels.id yang menampilkan pilihan proyek, arah kerja, dan hasil yang membantu brand tampil lebih terstruktur."
+>
+  <Header />
+  <main>
+    <PageIntro {...worksPage.intro} />
+    <WorkArchive {...worksPage.archive} />
+    <CTA {...homePage.cta} />
+  </main>
+  <Footer />
+</BaseLayout>

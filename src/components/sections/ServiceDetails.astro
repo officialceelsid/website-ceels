@@ -1,0 +1,64 @@
+---
+interface Offering {
+  title: string;
+  summary: string;
+  deliverables: readonly string[];
+  idealFor: string;
+}
+
+interface Props {
+  offerings: readonly Offering[];
+  approach: {
+    title: string;
+    description: string;
+    items: readonly {
+      title: string;
+      text: string;
+    }[];
+  };
+}
+
+const { offerings, approach } = Astro.props;
+---
+
+<section class="py-20 md:py-32">
+  <div class="container mx-auto px-4">
+    <div class="grid gap-6">
+      {offerings.map((offering, index) => (
+        <article data-reveal data-reveal-delay={String(index * 90)} class={`soft-card grid gap-6 rounded-[1.25rem] p-6 md:p-8 lg:grid-cols-[0.7fr_1.3fr] ${index % 2 === 1 ? "lg:grid-cols-[1.3fr_0.7fr]" : ""}`}>
+          <div class={`rounded-[1rem] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.68),rgba(226,242,191,0.48))] p-6 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+            <p class="section-kicker">Layanan</p>
+            <h2 class="mt-4 text-2xl font-semibold leading-tight tracking-[-0.04em] md:text-3xl">{offering.title}</h2>
+            <p class="mt-5 text-sm text-muted-foreground">Cocok untuk: {offering.idealFor}</p>
+          </div>
+
+          <div class={index % 2 === 1 ? "lg:order-1" : ""}>
+            <p class="text-base leading-7 text-muted-foreground">{offering.summary}</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              {offering.deliverables.map((item) => (
+                <span class="rounded-lg border border-white/65 bg-white/45 px-4 py-2 text-sm text-foreground/75">{item}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div data-reveal class="section-wash mt-16 rounded-[1.25rem] px-6 py-10 md:px-8 md:py-12">
+      <div class="max-w-2xl">
+        <p class="section-kicker">Pendekatan</p>
+        <h2 class="mt-3 section-title">{approach.title}</h2>
+        <p class="mt-4 text-lg text-muted-foreground">{approach.description}</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {approach.items.map((item, index) => (
+          <div data-reveal data-reveal-delay={String(index * 80)} class="soft-card rounded-[1rem] p-6">
+            <h3 class="text-xl font-semibold tracking-[-0.03em]">{item.title}</h3>
+            <p class="mt-3 text-muted-foreground">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
