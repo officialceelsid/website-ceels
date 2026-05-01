@@ -3,7 +3,6 @@ interface WorkItem {
   name: string;
   category: string;
   summary: string;
-  outcome: string;
 }
 
 interface Props {
@@ -14,64 +13,45 @@ interface Props {
 
 const { title, description, items } = Astro.props;
 
-const backgroundPositions = ["center top", "center center", "center bottom"];
-
-const backgroundImages = [
-  "/illiyinimage.webp",
-  "/illiyinimage2.webp",
-  "/illiyinimage.webp",
-];
+const featured = items[0];
+const archive = items.slice(1);
+const archiveImages = ["/project.webp", "/services.webp", "/hero.webp"];
 ---
 
-<section id="work" class="pt-18 pb-14 md:pt-40 md:pb-28">
-  <div class="container mx-auto px-4">
-    <div
-      class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between"
-    >
-      <div class="max-w-3xl">
-        <p class="section-kicker">Pilihan proyek</p>
-        <h2 class="mt-3.5 section-title md:max-w-[12ch]">{title}</h2>
-        <p class="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">{description}</p>
-      </div>
-      <a
-        href="#contact"
-        class="lg:mb-1 text-sm font-medium text-foreground/70 underline-offset-4 hover:underline"
-        >Mulai proyek serupa</a
-      >
-    </div>
+<section id="work" class="page-shell">
+  <div class="site-stack">
+    <div class="panel-dark section-frame">
+      <div class="grid gap-10 xl:grid-cols-[1.06fr_0.94fr] xl:items-start">
+        <div data-reveal class="rounded-[2rem] border border-white/14 bg-white/3 p-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]">
+          <img src="/project.webp" alt={featured.name} class="w-full rounded-[1.65rem] object-cover" />
+        </div>
 
-    <div class="mt-12 grid gap-5 md:mt-20 lg:grid-cols-3 lg:gap-8">
-      {
-        items.map((item, index) => (
-          <article
-            data-reveal
-            data-reveal-delay={String(index * 90)}
-            class={`group overflow-hidden rounded-[1.1rem] border border-black/6 bg-white shadow-[0_16px_40px_rgba(18,22,14,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(18,22,14,0.06)] ${index === 0 ? "lg:col-span-2" : ""} ${index === 2 ? "lg:mt-16" : index === 1 ? "lg:mt-8" : ""}`}
-          >
-            <div
-              class={`relative overflow-hidden bg-cover bg-no-repeat ${index === 0 ? "aspect-[4/4.6] sm:aspect-[16/10]" : "aspect-[4/4.8]"}`}
-              style={`background-image: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.12) 100%), url('${backgroundImages[index % backgroundImages.length]}'); background-position: ${backgroundPositions[index % backgroundPositions.length]};`}
-            >
-              <div class="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.78)_0%,rgba(255,255,255,0.18)_35%,rgba(255,255,255,0.08)_100%)]" />
-              <div class={`absolute inset-x-4 z-20 transition-transform duration-300 group-hover:translate-y-[-2px] sm:inset-x-5 ${index === 0 ? "top-6 sm:top-8 md:inset-x-7 md:top-9" : "top-8 sm:top-10"}`}>
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class={`font-semibold leading-tight tracking-[-0.04em] text-foreground ${index === 0 ? "text-[1.65rem] md:max-w-[14ch] md:text-4xl" : "text-xl md:text-2xl"}`}>
-                      {item.name}
-                    </h3>
-                    <p class={`mt-3 text-muted-foreground ${index === 0 ? "max-w-[30rem] text-sm leading-6 sm:text-base sm:leading-7" : "max-w-[24rem] text-sm leading-6"}`}>
-                      {item.summary}
-                    </p>
-                    <p class={`font-medium uppercase tracking-[0.22em] text-foreground/55 ${index === 0 ? "mt-5 text-[11px]" : "mt-3 text-[11px]"}`}>
-                      {item.category}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        <div data-reveal data-reveal-delay="100" class="xl:pt-2">
+          <p class="display-eyebrow text-white/75">Pilihan karya</p>
+          <p class="mt-2 text-sm uppercase tracking-[0.08em] text-accent">Nov 2024 • {featured.category}</p>
+          <h2 class="section-title mt-4 max-w-[9ch] text-white">{title}</h2>
+          <p class="mt-6 max-w-xl text-base leading-8 text-white/78 md:text-lg">{description}</p>
+          <h3 class="font-display mt-8 text-5xl uppercase leading-[0.9] tracking-[-0.05em] text-white md:text-6xl">{featured.name}</h3>
+          <p class="mt-5 max-w-lg text-base leading-8 text-white/78">{featured.summary}</p>
+          <a href="/works" class="section-link mt-10 text-white inline-flex">
+            <span>Lihat proyek</span>
+            <span class="arrow-chip border-white/30 text-white">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-white/16 pt-6 md:mt-14 md:pt-8">
+        {archive.map((item, index) => (
+          <article data-reveal data-reveal-delay={String(index * 80)} class="grid items-center gap-4 border-b border-white/16 py-5 md:grid-cols-[1.4fr_0.6fr_0.65fr_120px] md:gap-6 md:py-6">
+            <div>
+              <h3 class="font-display text-3xl uppercase leading-none tracking-[-0.04em] text-white md:text-4xl">{item.name}</h3>
             </div>
+            <p class="text-sm uppercase tracking-[0.08em] text-white/60">2024</p>
+            <p class="text-sm uppercase tracking-[0.08em] text-white/78">{item.category}</p>
+            <img src={archiveImages[index % archiveImages.length]} alt={item.name} class="h-20 w-28 rounded-[1.25rem] border border-white/12 object-cover" />
           </article>
-        ))
-      }
+        ))}
+      </div>
     </div>
   </div>
 </section>

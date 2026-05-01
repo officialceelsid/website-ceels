@@ -13,22 +13,41 @@ interface Props {
 const { title, description, items } = Astro.props;
 ---
 
-<section id="faq" class="py-14 md:py-24">
-  <div class="container mx-auto px-4">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class="section-title">{title}</h2>
-      <p class="mt-4 text-base leading-7 text-muted-foreground sm:mt-5 sm:text-lg sm:leading-8">{description}</p>
-    </div>
+<section id="faq" class="page-shell">
+  <div class="site-stack">
+    <div class="panel-dark section-frame">
+      <div class="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
+        <div>
+          <p class="display-eyebrow text-accent">FAQs</p>
+          <h2 class="section-title mt-4 max-w-[7ch] text-white">{title}</h2>
+          <p class="mt-6 max-w-sm text-base leading-8 text-white/72">{description}</p>
+        </div>
 
-    <div class="mx-auto mt-10 grid max-w-4xl gap-3 md:mt-16 md:gap-4">
-      {items.map((item, index) => (
-        <details data-reveal data-reveal-delay={String(index * 60)} class="soft-card rounded-[1rem] p-5 sm:p-6 md:p-7">
-          <summary class="cursor-pointer list-none pr-8 text-left text-base font-semibold sm:text-lg">
-            {item.question}
-          </summary>
-          <p class="mt-4 text-sm leading-6 text-muted-foreground sm:mt-5 sm:text-base">{item.answer}</p>
-        </details>
-      ))}
+        <div>
+          <div class="grid gap-4">
+            {items.map((item, index) => (
+              <details data-reveal data-reveal-delay={String(index * 60)} class="group dark-card overflow-hidden rounded-[1.7rem] p-0 text-white open:bg-[#083f31]" open={index === 0}>
+                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-6 py-5 text-left md:px-8 md:py-6">
+                  <span class="text-lg font-medium leading-8 md:text-[1.85rem] md:leading-[1.25]">{item.question}</span>
+                  <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/22 bg-white/4 text-2xl text-accent marker:hidden">
+                    <span class="group-open:hidden">+</span>
+                    <span class="hidden group-open:inline">−</span>
+                  </span>
+                </summary>
+                <p class="px-6 pb-6 text-base leading-8 text-white/78 md:px-8 md:pb-8">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+
+          <div class="mt-10 flex flex-col gap-4 text-white/86 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-base">Butuh jawaban yang lebih spesifik untuk proyek Anda?</p>
+            <a href="#contact" class="section-link text-white">
+              <span>Lihat semua FAQ</span>
+              <span class="arrow-chip border-white/30 text-white">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
