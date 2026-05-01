@@ -17,26 +17,50 @@ const { title, description, narrative, stats } = Astro.props;
 <section id="about" class="page-shell">
   <div class="site-stack">
     <div data-reveal class="panel-dark section-frame">
-      <div class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+      <div
+        class="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16"
+      >
         <div class="max-w-2xl">
           <p class="display-eyebrow text-accent">Tentang Kami</p>
           <h2 class="section-title mt-4 max-w-[10ch] text-white">{title}</h2>
           <p class="section-copy mt-6 max-w-2xl text-white/82">{description}</p>
-          <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 md:mt-8 md:text-lg">{narrative}</p>
+          <p
+            class="mt-6 max-w-2xl text-base leading-8 text-white/72 md:mt-8 md:text-lg"
+          >
+            {narrative}
+          </p>
           <div class="mt-8 flex flex-wrap gap-3 md:mt-10">
-            {stats.map((stat, index) => (
-              <div data-reveal data-reveal-delay={String(index * 70)} class="rounded-full border border-white/18 bg-white/6 px-4 py-2.5 text-sm text-white/82">
-                <span class="font-semibold text-accent">{stat.value}</span>
-                <span class="ml-2">{stat.label}</span>
-              </div>
-            ))}
+            {
+              stats.map((stat, index) => (
+                <div
+                  data-reveal
+                  data-reveal-delay={String(index * 70)}
+                  class="rounded-full border border-white/18 bg-white/6 px-4 py-2.5 text-sm text-white/82"
+                >
+                  <span class="font-semibold text-accent">{stat.value}</span>
+                  <span class="ml-2">{stat.label}</span>
+                </div>
+              ))
+            }
           </div>
         </div>
 
         <div class="relative">
-          <img src="/about.png" alt="Tim Ceels.id" class="w-full rounded-[2rem] border border-white/18 object-cover shadow-[0_22px_40px_rgba(0,0,0,0.18)]" />
-          <div class="absolute -bottom-4 left-[6%] text-7xl leading-none text-accent md:text-8xl">~</div>
-          <div class="absolute right-[3%] top-[10%] text-6xl leading-none text-accent md:text-7xl">⌁</div>
+          <img
+            src="/about-image.webp"
+            alt="Tim Ceels.id"
+            class="w-full rounded-[2rem] border border-white/18 object-cover shadow-[0_22px_40px_rgba(0,0,0,0.18)]"
+          />
+          <div
+            class="absolute -bottom-4 left-[6%] text-7xl leading-none text-accent md:text-8xl"
+          >
+            ~
+          </div>
+          <div
+            class="absolute right-[3%] top-[10%] text-6xl leading-none text-accent md:text-7xl"
+          >
+            ⌁
+          </div>
         </div>
       </div>
     </div>

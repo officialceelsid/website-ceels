@@ -26,49 +26,97 @@ const { title, description, primaryCta, secondaryCta, proof } = Astro.props;
 <section id="hero" class="page-shell pt-4 md:pt-6">
   <div class="site-stack">
     <div data-reveal class="panel-light section-frame pb-20 md:pb-24">
-      <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+      <div
+        class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14"
+      >
         <div class="max-w-3xl">
           <p class="display-eyebrow text-primary/70">{proof.label}</p>
-          <h1 class="display-title mt-4 max-w-[11ch] text-balance text-primary">{title}</h1>
-          <p class="section-copy mt-5 max-w-2xl text-primary/82 md:mt-7">{description}</p>
+          <h1 class="display-title mt-4 max-w-[11ch] text-balance text-primary">
+            {title}
+          </h1>
+          <p class="section-copy mt-5 max-w-2xl text-primary/82 md:mt-7">
+            {description}
+          </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10">
             <Button size="lg" asChild>
-              <a class="w-full sm:w-auto" href={primaryCta.href}>{primaryCta.label}</a>
+              <a class="w-full sm:w-auto" href={primaryCta.href}
+                >{primaryCta.label}</a
+              >
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a class="w-full sm:w-auto" href={secondaryCta.href}>{secondaryCta.label}</a>
+              <a class="w-full sm:w-auto" href={secondaryCta.href}
+                >{secondaryCta.label}</a
+              >
             </Button>
           </div>
         </div>
 
-        <div data-reveal data-reveal-delay="120" class="relative min-h-[320px] lg:min-h-[520px]">
-          <div class="absolute right-6 top-0 hidden rounded-[2rem] border border-primary/15 bg-white/70 p-4 shadow-[0_18px_35px_rgba(26,31,25,0.08)] md:block lg:right-10 lg:top-6 lg:w-[55%]">
-            <img src="/hero.webp" alt="Mockup visual hero Ceels.id" class="aspect-[1.25/1] w-full rounded-[1.75rem] object-cover object-right-top" />
+        <div
+          data-reveal
+          data-reveal-delay="120"
+          class="relative min-h-[320px] lg:min-h-[520px]"
+        >
+          <div
+            class="absolute right-6 top-0 hidden rounded-[2rem] border border-primary/15 bg-white/70 p-4 shadow-[0_18px_35px_rgba(26,31,25,0.08)] md:block lg:right-10 lg:top-6 lg:w-[55%]"
+          >
+            <img
+              src="/hero-image-2.webp"
+              alt="Mockup visual hero Ceels.id"
+              class="aspect-[1.25/1] w-full rounded-[1.75rem] object-cover object-right-top"
+            />
           </div>
-          <div class="absolute right-0 top-14 z-10 w-[84%] rounded-[2rem] border border-primary/20 bg-white p-3 shadow-[0_26px_44px_rgba(26,31,25,0.14)] md:w-[78%] lg:top-40">
-            <img src="/project.webp" alt="Preview project showcase" class="aspect-[1.18/1] w-full rounded-[1.5rem] object-cover object-left" />
-            <div class="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-[1.5rem] bg-gradient-to-t from-primary/20 via-transparent to-transparent px-6 py-5">
-              <p class="font-display text-[clamp(2rem,7vw,5rem)] leading-none uppercase tracking-[-0.05em] text-white/92">Ceels.id</p>
+          <div
+            class="absolute right-0 top-14 z-10 w-[84%] rounded-[2rem] border border-primary/20 bg-white p-3 shadow-[0_26px_44px_rgba(26,31,25,0.14)] md:w-[78%] lg:top-40"
+          >
+            <img
+              src="/hero-image-1.webp"
+              alt="Preview project showcase"
+              class="aspect-[1.18/1] w-full rounded-[1.5rem] object-cover object-left"
+            />
+            <div
+              class="pointer-events-none absolute inset-x-0 bottom-0 rounded-b-[1.5rem] bg-gradient-to-t from-primary/20 via-transparent to-transparent px-6 py-5"
+            >
+              <p
+                class="font-display text-[clamp(2rem,7vw,5rem)] leading-none uppercase tracking-[-0.05em] text-white/92"
+              >
+                Ceels.id
+              </p>
             </div>
           </div>
-          <div class="absolute -left-1 bottom-2 z-20 rounded-[1.6rem] border border-primary/15 bg-white px-5 py-4 shadow-[0_16px_30px_rgba(26,31,25,0.12)] md:w-[42%] lg:bottom-12">
+          <div
+            class="absolute -left-1 bottom-2 z-20 rounded-[1.6rem] border border-primary/15 bg-white px-5 py-4 shadow-[0_16px_30px_rgba(26,31,25,0.12)] md:w-[42%] lg:bottom-12"
+          >
             <p class="display-eyebrow text-primary/55">{proof.title}</p>
-            <p class="mt-2 text-sm leading-6 text-primary/78">{proof.description}</p>
+            <p class="mt-2 text-sm leading-6 text-primary/78">
+              {proof.description}
+            </p>
           </div>
-          <div class="absolute right-4 top-[18%] z-20 text-7xl font-black text-accent md:right-2 md:text-8xl lg:right-6 lg:top-[14%]">↗</div>
+          <div
+            class="absolute right-4 top-[18%] z-20 text-7xl font-black text-accent md:right-2 md:text-8xl lg:right-6 lg:top-[14%]"
+          >
+            ↗
+          </div>
         </div>
       </div>
 
       <div class="mt-12 flex justify-center md:mt-16">
         <nav class="floating-nav" aria-label="Navigasi utama">
           <a href="#hero" class="floating-nav-home" aria-label="Ke hero">
-            <svg viewBox="0 0 24 24" class="h-5 w-5 fill-current" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5 fill-current"
+              aria-hidden="true"
+            >
               <path d="M12 3.4 3.5 10v10.5h6v-6h5v6h6V10z"></path>
             </svg>
           </a>
-          {mainNavigation.map((link) => (
-            <a href={link.href} class="floating-nav-link">{link.label}</a>
-          ))}
+          {
+            mainNavigation.map((link) => (
+              <a href={link.href} class="floating-nav-link">
+                {link.label}
+              </a>
+            ))
+          }
         </nav>
       </div>
     </div>
