@@ -5,9 +5,10 @@ import Footer from "@/components/Footer.astro";
 import CTA from "@/components/sections/CTA.astro";
 import PageIntro from "@/components/sections/PageIntro.astro";
 import ServiceDetails from "@/components/sections/ServiceDetails.astro";
+import PricingPackages from "@/components/sections/PricingPackages.astro";
 import { siteConfig } from "@/config/site";
 import { homePage } from "@/content/home";
-import { servicesPage } from "@/content/site";
+import { servicePackages, servicesPage } from "@/content/site";
 ---
 
 <BaseLayout
@@ -18,6 +19,12 @@ import { servicesPage } from "@/content/site";
   <main>
     <PageIntro {...servicesPage.intro} />
     <ServiceDetails offerings={servicesPage.offerings} approach={servicesPage.approach} />
+    <PricingPackages
+      detailed
+      title={servicesPage.packagesIntro.title}
+      description={servicesPage.packagesIntro.description}
+      packages={servicePackages}
+    />
     <CTA {...homePage.cta} />
   </main>
   <Footer />

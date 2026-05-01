@@ -12,6 +12,7 @@ import Testimonials from "@/components/sections/Testimonials.astro";
 import FAQ from "@/components/sections/FAQ.astro";
 import { siteConfig } from "@/config/site";
 import { homePage } from "@/content/home";
+import { servicePackages } from "@/content/site";
 ---
 
 <BaseLayout title={siteConfig.name} description={siteConfig.description}>
@@ -19,7 +20,7 @@ import { homePage } from "@/content/home";
   <main>
     <Hero {...homePage.hero} />
     <About {...homePage.about} />
-    <Services {...homePage.services} />
+    <Services {...homePage.services} packageTeasers={servicePackages} />
     <Portfolio {...homePage.work} />
     <Process {...homePage.process} />
     <Testimonials {...homePage.testimonials} />

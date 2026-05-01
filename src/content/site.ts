@@ -75,7 +75,102 @@ export const servicesPage = {
       },
     ],
   },
+  packagesIntro: {
+    title: "Pilihan Paket untuk Mulai Lebih Ringan",
+    description:
+      "Paket ini dirancang untuk bisnis yang ingin mulai cepat dengan struktur yang jelas, biaya lebih terukur, dan opsi pengembangan lanjutan saat kebutuhan bertambah.",
+  },
 } as const;
+
+export const servicePackages = [
+  {
+    name: "Landing Page",
+    price: "Start 99K / bulan",
+    promo: "Free 1 bulan",
+    summary: "Paket paling ringan untuk validasi penawaran, promosi, atau kebutuhan halaman fokus dengan CTA yang langsung mengarahkan ke WhatsApp.",
+    highlights: [
+      "1 halaman landing page",
+      "4 section utama",
+      "Template / semi-custom",
+      "Responsive mobile",
+      "CTA WhatsApp",
+      "Maintenance + hosting basic",
+    ],
+  },
+  {
+    name: "Company Profile",
+    price: "Start 199K / bulan",
+    promo: "Free 1 bulan",
+    summary: "Cocok untuk bisnis yang membutuhkan website profil yang rapi dan mudah dipahami untuk memperkenalkan perusahaan dan layanan inti.",
+    highlights: [
+      "3 halaman utama",
+      "Halaman tentang perusahaan",
+      "Template / semi-custom",
+      "CTA WhatsApp",
+      "Google Maps",
+      "Responsive mobile",
+      "Maintenance + hosting basic",
+    ],
+  },
+  {
+    name: "Web Katalog",
+    price: "Start 349K / bulan",
+    promo: "Free 1 bulan + paket 1 tahun 299K / bulan",
+    summary: "Untuk bisnis yang ingin menampilkan produk atau jasa secara lebih rapi tanpa alur checkout penuh di tahap awal.",
+    highlights: [
+      "Sampai 10 produk / jasa awal",
+      "Kategori sederhana",
+      "Detail produk / jasa",
+      "Tombol WhatsApp per produk / jasa",
+      "Maintenance",
+      "Hosting basic",
+    ],
+  },
+  {
+    name: "Toko Online / E-Commerce",
+    price: "Start 499K / bulan",
+    promo: "Free 1 bulan + paket 1 tahun 449K / bulan",
+    summary: "Untuk bisnis yang ingin mulai menjual online dengan alur katalog, keranjang, dan checkout manual yang tetap sederhana untuk dikelola.",
+    highlights: [
+      "Sampai 20 produk awal",
+      "Kategori produk",
+      "Keranjang belanja sederhana",
+      "Checkout manual",
+      "Order via WhatsApp / email",
+      "Maintenance + hosting basic",
+    ],
+  },
+  {
+    name: "Dashboard Admin",
+    price: "Start 499K / bulan",
+    promo: "Free 1 bulan + paket 6 bulan 449K / bulan + paket 1 tahun 399K / bulan",
+    summary: "Cocok untuk kebutuhan internal yang membutuhkan login admin, pengelolaan data, dan workflow sederhana yang lebih rapi daripada spreadsheet manual.",
+    highlights: [
+      "Login admin",
+      "1 role user",
+      "1 modul data utama",
+      "Tambah / edit / hapus data",
+      "Tabel data + pencarian sederhana",
+      "Export CSV",
+      "Hosting basic + maintenance",
+    ],
+  },
+  {
+    name: "Web / Aplikasi Custom",
+    price: "Start 999K / bulan",
+    promo: "Free 1 bulan + special price paket 1 tahun",
+    summary: "Untuk kebutuhan yang sudah tidak cocok dengan template paket sederhana dan memerlukan modul, role, serta alur yang lebih spesifik.",
+    highlights: [
+      "Login user / admin",
+      "1-2 role user",
+      "1-2 modul utama",
+      "Database",
+      "Dashboard admin sederhana",
+      "Frontend sederhana",
+      "Hosting basic + maintenance",
+    ],
+  },
+] as const;
 
 export const worksPage = {
   intro: {
