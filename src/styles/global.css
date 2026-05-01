@@ -160,6 +160,15 @@
     transform: translate(2px, -2px);
   }
 
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .js [data-reveal] {
     opacity: 0;
     transform: translate3d(0, 22px, 0) scale(0.985);
